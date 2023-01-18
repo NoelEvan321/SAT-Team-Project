@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace SAT_Team_Development.DATA.EF.Models
 {
    
-    [ModelMetadataType(typeof(CourseMetadata)]
+    [ModelMetadataType(typeof(CourseMetadata))]
     public partial class Course
     {
 
@@ -27,7 +27,7 @@ namespace SAT_Team_Development.DATA.EF.Models
 
     }
 
-    [ModelMetadataType(typeof(ScheduledClassStatusMetadata)]
+    [ModelMetadataType(typeof(ScheduledClassStatusMetadata))]
     public partial class ScheduledClassStatus
     {
 
@@ -39,6 +39,7 @@ namespace SAT_Team_Development.DATA.EF.Models
 
     }
 
+    [ModelMetadataType(typeof(StudentStatusMetadata))]
     public partial class StudentStatus
     {
 
