@@ -1,21 +1,10 @@
 ﻿@model IEnumerable<SAT_Team_Development.DATA.EF.Models.Course>
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<div class="container mt-5">
+<table class="table" id="coursesTable">
     <thead>
         <tr>
             <th>
@@ -69,5 +58,11 @@
 }
     </tbody>
 </table>
-</body>
-</html>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready( function () {
+            $('.table').DataTable();
+        } );
+    </script>
+}

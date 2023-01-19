@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SAT_Team_Development.DATA.EF.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SAT_Team_Development.UI.MVC.Controllers
 {
+
+    //[Authorize(Roles = "Admin")]
     public class CoursesController : Controller
     {
         private readonly SAT_Administration_ToolContext _context;
