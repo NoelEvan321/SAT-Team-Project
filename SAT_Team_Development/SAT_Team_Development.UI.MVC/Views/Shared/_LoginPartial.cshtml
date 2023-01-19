@@ -16,11 +16,20 @@
 }
 else
 {
-    <li class="nav-item">
+   @* <li class="nav-item">
         <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
+    </li>*@
+        <li class="nav-item">
+            <a class="nav-link collapsed" asp-area="Identity" asp-page="/Account/Register">
+                <i class="bi bi-card-list"></i>
+                <span>Register</span>
+            </a>
+        </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a class="nav-link collapsed" asp-area="Identity" asp-page="/Account/Login">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Login</span>
+            </a>
     </li>
 }
 </ul>
