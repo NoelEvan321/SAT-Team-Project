@@ -1,45 +1,39 @@
 ﻿@model SAT_Team_Development.DATA.EF.Models.Enrollment
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Edit " + Model.EnrollmentId;
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-
-<div>
-    <h4>Enrollment</h4>
-    <hr />
+<div class="container mt-5">
+    <br/>
+    <br/>
+    
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EnrollmentDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ScheduledClass)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ScheduledClass.InstructorName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Student)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Student.Email)
-        </dd>
+        <div class="offset-4 col-md-4">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EnrollmentDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EnrollmentDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ScheduledClass)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ScheduledClass.InstructorName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Student)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Student.Email)
+            </dd>
+        </div>
     </dl>
 </div>
-<div>
+<div class="text-center">
     <a asp-action="Edit" asp-route-id="@Model?.EnrollmentId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
-</body>
-</html>
+
