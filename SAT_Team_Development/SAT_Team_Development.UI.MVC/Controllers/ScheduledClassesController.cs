@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SAT_Team_Development.DATA.EF.Models;
-
 namespace SAT_Team_Development.UI.MVC.Controllers
 {
+    [Authorize(Roles = "Scheduling"), Authorize(Roles = "Admin")]
     public class ScheduledClassesController : Controller
     {
         private readonly SAT_Administration_ToolContext _context;
@@ -48,7 +50,7 @@ namespace SAT_Team_Development.UI.MVC.Controllers
         // GET: ScheduledClasses/Create
         public IActionResult Create()
         {
-            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseDescription");
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseId");
             ViewData["Scsid"] = new SelectList(_context.ScheduledClassStatuses, "Scsid", "Scsname");
             return View();
         }

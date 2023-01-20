@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SAT_Team_Development.DATA.EF.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SAT_Team_Development.UI.MVC.Controllers
 {
+    [Authorize(Roles = "Scheduling"), Authorize(Roles = "Admin")]
     public class EnrollmentsController : Controller
     {
         private readonly SAT_Administration_ToolContext _context;
@@ -48,6 +50,7 @@ namespace SAT_Team_Development.UI.MVC.Controllers
         // GET: Enrollments/Create
         public IActionResult Create()
         {
+
             ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses, "ScheduledClassId", "InstructorName");
             ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "Email");
             return View();
