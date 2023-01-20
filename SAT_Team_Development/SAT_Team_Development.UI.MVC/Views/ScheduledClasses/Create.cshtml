@@ -40,18 +40,12 @@
                     <label asp-for="Scsid" class="control-label"></label>
                     <select asp-for="Scsid" class="form-control" asp-items="ViewBag.Scsid"></select>
                 </div>
-                <div class="form-group">
+                <div class="form-group text-center">
                     <input type="submit" value="Create" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-primary">Back to List</a>
                 </div>
             </form>
         </div>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
