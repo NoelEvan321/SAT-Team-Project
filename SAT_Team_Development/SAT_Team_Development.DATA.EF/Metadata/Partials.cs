@@ -2,6 +2,7 @@
 using SAT_Team_Development.DATA.EF.Metadata;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,21 @@ namespace SAT_Team_Development.DATA.EF.Models
     [ModelMetadataType(typeof(ScheduledClassMetadata))]
     public partial class ScheduledClass
     {
+        private readonly SAT_Administration_ToolContext _context;
 
+        [NotMapped]
+        public string ClassInfo
+        {
+            get
+            {
+                if (this.Course == null)
+                {
+                    this.Course = _context.Courses.Where(c => c.CourseId == CourseId).FirstOrDefault();
+                }
+                return string.Format($"{Course.CourseName} | {StartDate:d} | {InstructorName}");
+            }
+            
+        }
     }
 
     [ModelMetadataType(typeof(ScheduledClassStatusMetadata))]

@@ -10,7 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using SAT_Team_Development.DATA.EF.Models;
 namespace SAT_Team_Development.UI.MVC.Controllers
 {
-    [Authorize(Roles = "Scheduling"), Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Scheduling, Admin")]
+    //[Authorize(Roles = "Scheduling"), Authorize(Roles = "Admin")]
     public class ScheduledClassesController : Controller
     {
         private readonly SAT_Administration_ToolContext _context;
@@ -68,7 +69,7 @@ namespace SAT_Team_Development.UI.MVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseDescription", scheduledClass.CourseId);
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseName", scheduledClass.CourseId);
             ViewData["Scsid"] = new SelectList(_context.ScheduledClassStatuses, "Scsid", "Scsname", scheduledClass.Scsid);
             return View(scheduledClass);
         }
@@ -86,7 +87,7 @@ namespace SAT_Team_Development.UI.MVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseDescription", scheduledClass.CourseId);
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseName", scheduledClass.CourseId);
             ViewData["Scsid"] = new SelectList(_context.ScheduledClassStatuses, "Scsid", "Scsname", scheduledClass.Scsid);
             return View(scheduledClass);
         }

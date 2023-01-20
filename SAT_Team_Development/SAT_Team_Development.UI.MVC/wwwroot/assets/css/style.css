@@ -1258,3 +1258,20 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
+/*Custom Rules*/
+
+.indexBackground {
+    background-image: url("../img/asia-culturecenter-fGLuk0h0EsY-unsplash.jpg");
+    background-position: center;
+    min-height:80vh;
+    /*background-size:contain;*/
+    background-repeat:no-repeat;
+    color: white;
+    background-attachment:fixed;
+}
+.indexBody {
+    background-color: rgb(102, 101, 104, 0.70);
+    min-height: 40vh;
+    border-radius: 10px;
+}
