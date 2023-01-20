@@ -2,7 +2,17 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container text-center mt-5 indexBackground">
+    <br />
+    <br />
+    <div class="indexBody">
+        <h1 class="display-4 mb-3 p-2">Welcome</h1>
+        <p>Welcome to the Blurple Fishbirds Administrative tool. Here we offer a plethera of unique and exciting courses in the realm of life.</p>
+        <br />
+        <p>Whether you are interested in History, Computer Science, Woodworking, Business, or whatever else, please feel free to contact us using the button below. We hope that Fishbirds can provide you with your educational needs!</p>
+        <br />
+        <p> For those of you that are associated with with one of the courses we manage, please log in for full functionality.</p>
+        <br />
+        <a asp-action="Contact" asp-controller="Home" class="btn btn-primary mb-5">Contact us!</a>
+    </div>
 </div>
