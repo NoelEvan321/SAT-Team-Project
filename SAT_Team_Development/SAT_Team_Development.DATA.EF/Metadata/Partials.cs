@@ -28,15 +28,19 @@ namespace SAT_Team_Development.DATA.EF.Models
         private readonly SAT_Administration_ToolContext _context;
 
         [NotMapped]
-        public string ClassInfo
+        public string? ClassInfo
         {
             get
             {
-                if (this.Course == null)
+                if (Course == null)
                 {
-                    this.Course = _context.Courses.Where(c => c.CourseId == CourseId).FirstOrDefault();
+                    return null;
                 }
-                return string.Format($"{Course.CourseName} | {StartDate:d} | {InstructorName}");
+                else
+                {
+
+                    return string.Format($"{Course.CourseName} | {StartDate:d} | {InstructorName}");
+                }
             }
             
         }
