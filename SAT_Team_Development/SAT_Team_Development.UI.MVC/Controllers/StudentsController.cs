@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using SAT_Team_Development.DATA.EF.Models;
 namespace SAT_Team_Development.UI.MVC.Controllers
 {
-    [Authorize(Roles = "Scheduling"), Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Scheduling, Admin")]
     public class StudentsController : Controller
     {
         private readonly SAT_Administration_ToolContext _context;

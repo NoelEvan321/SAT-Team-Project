@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SAT_Team_Development.DATA.EF.Models;
 using Microsoft.AspNetCore.Authorization;
-
+using SAT_Team_Development.UI.MVC.Models;
 namespace SAT_Team_Development.UI.MVC.Controllers
 {
-    [Authorize(Roles = "Scheduling"), Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Scheduling, Admin")]
     public class EnrollmentsController : Controller
     {
         private readonly SAT_Administration_ToolContext _context;
@@ -50,8 +50,10 @@ namespace SAT_Team_Development.UI.MVC.Controllers
         // GET: Enrollments/Create
         public IActionResult Create()
         {
+            //EnrollmentViewModel evm = new EnrollmentViewModel()
 
-            ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses, "ScheduledClassId", "InstructorName");
+            //ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses, "ScheduledClassId", "InstructorName");
+            ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses.Include(x => x.Course), "ScheduledClassId", "ClassInfo");
             ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "Email");
             return View();
         }
@@ -87,7 +89,7 @@ namespace SAT_Team_Development.UI.MVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses, "ScheduledClassId", "InstructorName", enrollment.ScheduledClassId);
+            ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses.Include(x => x.Course), "ScheduledClassId", "ClassInfo", enrollment.ScheduledClassId);
             ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "Email", enrollment.StudentId);
             return View(enrollment);
         }
@@ -124,7 +126,7 @@ namespace SAT_Team_Development.UI.MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses, "ScheduledClassId", "InstructorName", enrollment.ScheduledClassId);
+            ViewData["ScheduledClassId"] = new SelectList(_context.ScheduledClasses.Include(x => x.Course), "ScheduledClassId", "ClassInfo", enrollment.ScheduledClassId);
             ViewData["StudentId"] = new SelectList(_context.Students, "StudentId", "Email", enrollment.StudentId);
             return View(enrollment);
         }

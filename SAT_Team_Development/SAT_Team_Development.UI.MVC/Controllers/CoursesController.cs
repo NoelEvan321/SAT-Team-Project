@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace SAT_Team_Development.UI.MVC.Controllers
 {
 
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class CoursesController : Controller
     {
         private readonly SAT_Administration_ToolContext _context;
