@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+@model SAT_Team_Development.UI.MVC.Models.ContactViewModel
+<div class="container">
+    <br/>
+    <br/>
+    <br/>
+    <div class="row">
+        
+        </div>
+        <div class="offset-md-2 col-md-8">
+            <div class="section-title clear">
+                <h3>Send me a meesage (Under Constuction)</h3>
+                <span class="bar-dark"></span>
+                <span class="bar-primary"></span>
+            </div>
+            <form asp-action="Contact" id="contact-form" class="row contact-form no-gutter">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-xs-12 col-sm-6 mb-2">
+                    <div class="input-field name">
+                        <span class="input-icon" id="name"><i class="tf-profile-male"></i></span>
+                        <input asp-for="Name" class="form-control" placeholder="Enter your name">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div> <!-- ./col- -->
+                <div class="col-xs-12 col-sm-6 mb-2">
+                    <div class="input-field email">
+                        <span class="input-icon" id="email"><i class="tf-envelope2"></i></span>
+                        <input asp-for="Email" class="form-control" placeholder="Your email address">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div> <!-- ./col- -->
+                <div class="col-xs-12 col-sm-12 mb-2">
+                    <div class="input-field">
+                        <span class="input-icon" id="subject"><i class="tf-pricetags"></i></span>
+                        <input asp-for="Subject" class="form-control" placeholder="Enter the discussion title">
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                    </div>
+                </div> <!-- ./col- -->
+                <div class="col-xs-12 col-sm-12 mb-2">
+                    <div class="input-field message">
+                        <span class="input-icon"><i class="tf-pencil2"></i></span>
+                        <textarea asp-for="Message" id="message" class="form-control" placeholder="Write your message"></textarea>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div> <!-- ./col- -->
+                <div class="offset-4 col-md-4">
+                    <div class="input-field">
+                        <span class="btn-border">
+                            <button type="submit" class="btn btn-primary btn-custom-border text-uppercase">
+                                Send
+                            </button>
+                        </span>
+                    </div>
+                </div> <!-- ./col- -->
+            </form> <!-- /.row -->
+        </div> <!-- /.col- -->
+    </div> <!-- /.row -->
+

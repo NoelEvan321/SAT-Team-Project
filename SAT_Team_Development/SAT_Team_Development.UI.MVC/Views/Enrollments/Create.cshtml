@@ -29,8 +29,9 @@
                     <input asp-for="EnrollmentDate" class="form-control" />
                     <span asp-validation-for="EnrollmentDate" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group text-center">
                     <input type="submit" value="Create" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-danger">Back to List</a>
                 </div>
             </form>
         </div>
@@ -38,7 +39,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+   
 </div>
 
 @section Scripts {

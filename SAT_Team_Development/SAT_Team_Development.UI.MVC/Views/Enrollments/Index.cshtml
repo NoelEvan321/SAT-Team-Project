@@ -4,13 +4,13 @@
     ViewData["Title"] = "Enrollments";
 }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <div class="container mt-5">
     <br />
     <br />
     <h3 class="text-center">@ViewData["Title"]</h3>
+<p class="text-center">
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
     <table class="table">
         <thead>
             <tr>
@@ -33,7 +33,7 @@
                     @Html.DisplayFor(modelItem => item.EnrollmentDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ScheduledClass.InstructorName)
+                    @Html.DisplayFor(modelItem => item.ScheduledClass.ScheduledClassId)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Student.Email)
@@ -50,8 +50,10 @@
 </div>
 
 @section Scripts {
+    <script>
         $(document).ready( function () {
         $('.table').DataTable();
     } );
+    </script>
 
 }

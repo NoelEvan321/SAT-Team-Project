@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SAT_Team_Development.DATA.EF.Models;
-
 namespace SAT_Team_Development.UI.MVC.Controllers
 {
+    [Authorize(Roles = "Scheduling"), Authorize(Roles = "Admin")]
     public class StudentsController : Controller
     {
         private readonly SAT_Administration_ToolContext _context;
